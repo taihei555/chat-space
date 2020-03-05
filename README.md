@@ -25,33 +25,23 @@ Things you may want to cover:
 usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|email|string|null: false|
-|password|string|null: false|
-|nickname|string|null: false|
+|email|string|null: false, unique: true|
+|name|string|null: false, add_index: true|
 ### Association
-- has_many :tweets
-- has_many :comments
+  has_many :group_user
+  has_many :group, though: groups_users
+  has_many :messages
 
-tweetテーブル
-|Column|Type|Options|
-|------|----|-------|
-|image|text||
-|text|text||
-|user_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- has_many :comments
 
-groupテーブル
+groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|image|text||
-|text|text|null: false|
+|group_name|string|null: false, unique: true|
 ### Association
-- has_many :posts_tags
-- has_many  :posts,  through:  :posts_tags
-
+  has_many :groups_users
+  has_many  :messeages
+  has_many :users, through: groups_users
 
 groups_usersテーブル
 
@@ -64,12 +54,13 @@ groups_usersテーブル
 - belongs_to :group
 - belongs_to :user
 
-comentテーブル
+messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
+|body_text|null: false|
+|image|string|
 |user_id|integer|null: false, foreign_key: true|
-|tweet_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :tweet
+- belongs_to :group
 - belongs_to :user
