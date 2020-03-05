@@ -37,7 +37,7 @@ groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, unique: true|
+|name|string|null: false, unique: true|
 ### Association
   has_many :groups_users
   has_many  :messeages
@@ -57,7 +57,7 @@ groups_usersテーブル
 messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body_text|null: false|
+|body|text|
 |image|string|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
