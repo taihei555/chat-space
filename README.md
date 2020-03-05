@@ -28,7 +28,7 @@ usersテーブル
 |email|string|null: false, unique: true|
 |name|string|null: false, add_index: true|
 ### Association
-  has_many :group_user
+  has_many :group_users
   has_many :group, though: groups_users
   has_many :messages
 
