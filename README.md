@@ -64,5 +64,3 @@ messagesテーブル
 ### Association
 - belongs_to :group
 - belongs_to :user
-
-テスト
