@@ -2,26 +2,26 @@
   .main-header
     .main-header__leftbox
       %h2.main-header__leftbox__current-group
-        test
-      %ul.main-header__leftbox__member-list
-        Member :  
-        %li.main-header__leftbox__member-list__member
-          &nbsp;masa 
+        =@group.name
+      .main-header__leftbox__member-list
+        Member : 
+        %ul
+          - @group.users.each do |user|
+            %li= user.name    
     .main-header__edit-btn
-      = link_to "#" do 
-        Edit
+      = link_to "Edit", edit_group_path(@group)
         
-  .massages
-    
+  .messages
+    = render @messages
 
   .form
-    %form.new_massagesa  
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: "text",class: "input-box__text", placeholder: "type a message"} 
-        %label{class: "input-box__image"}
+        = f.text_field :content, class: "input-box__text", placeholder: "type a message"
+        = f.label :image, class: "input-box__image" do
           = icon('fas', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn"} 
+          = f.file_field :image, class: "input-box__image__file"
+      = f.submit 'Send', class: "submit-btn"
 
 
 
