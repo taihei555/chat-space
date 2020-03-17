@@ -53,4 +53,4 @@ production:
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
-  ['CHAT-SPACE_DATABASE_PASSWORD'] %>
+
