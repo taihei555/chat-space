@@ -48,23 +48,26 @@
       padding-bottom: 40px;
       margin:35px 0 0 40px;
       .upper-message {
-        display: flex;
         margin-bottom: 10px;
         &__user-name {
           color: #434a54;
           font-size: 16px;
           font-weight: bold;
+          float: left;
         }
-          &__date {
-            color: #999999;
-            font-size: 12px;
-            margin-left: 10px;
-          }
+        &__date {
+          color: #999999;
+          font-size: 12px;
+          margin-left: 10px;
+          float: left;
+        }
       }
       .lower-message {
         color: #434a54;
         font-size: 14px;
+        padding-top: 10px;
         margin-bottom: 10px;
+        clear: both;
       }
     }
   
